@@ -1,6 +1,6 @@
 ---
 - name: Create VLAN if don’t exist on a Cisco
-  hosts: Cisco
+  hosts: cisco
   gather_facts: false
   connection: local
 
