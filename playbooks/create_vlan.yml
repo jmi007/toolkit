@@ -1,14 +1,12 @@
 ---
-- hosts: cisco
-
-  vars:
-    vlan_name: users
-    vlan_id: 20
-
-  tasks:
-    - name: Create VLAN
-      cisco.ios.ios_vlans:
+- name: configure VLANs 
+  hosts: cisco
+  gather_facts: false
+  tasks: 
+    - name: VLANs task
+      cisco.nxos.vlans:
         config:
-        - name: "{{ vlan_name }}"
-          vlan_id: "{{ vlan_id }}"
-          state: active
+        - vlan_id: 5
+          name: WEB
+        - vlan_id: 10
+
