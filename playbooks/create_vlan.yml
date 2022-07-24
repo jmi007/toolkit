@@ -6,8 +6,9 @@
 
 #Change variables values
   vars:
-    vlan_id: 10
-    vlan_name: Guest
+    vlan_id: 100
+    vlan_name: Management
+    interface: GigabitEthernet1
     
   tasks:
    #Add VLAN with name and interfaces too.
