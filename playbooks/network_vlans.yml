@@ -5,7 +5,8 @@
   vars:
     - vlan_state:  "{{ net_vlan_state | default('merged') }}"
     - vlan_config: "{{ net_vlan_config | default('') }}"
-    net_vlan_config:
+  
+  net_vlan_config:
     - name: desktops
       vlan_id: 5
     - name: servers
