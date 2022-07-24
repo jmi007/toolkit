@@ -1,25 +1,14 @@
 ---
-- name: Create VLAN if don’t exist on a Cisco
-  hosts: cisco
-  gather_facts: false
-  connection: local
+- hosts: cisco
 
-#Change variables values
   vars:
-    vlan_id: 100
-    vlan_name: Management
-    interface: GigabitEthernet1
-    
+    vlan_name: users
+    vlan_id: 20
+
   tasks:
-   #Add VLAN with name and interfaces too.
-    - name: Add VLAN using aggregate
-      cisco.ios.ios_vlan:
-        aggregate:
-        - {vlan_id: "{{ vlan_id }}", name: "{{ vlan_name }}", interfaces: "{{ interface }}"}
-
-   #Save to start-config when modified 
-    - name: save running to start-config when modified
-      ios_config:
-        save_when: modified
-
-#End of codes
+    - name: Create VLAN
+      cisco.ios.ios_vlans:
+        config:
+        - name: "{{ vlan_name }}"
+          vlan_id: "{{ vlan_id }}"
+          state: active
