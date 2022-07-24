@@ -1,6 +1,6 @@
 ---
 - name: configure network VLANs
-  hosts: all
+  hosts: cisco
   gather_facts: no
   vars:
     - vlan_state:  "{{ net_vlan_state | default('merged') }}"
